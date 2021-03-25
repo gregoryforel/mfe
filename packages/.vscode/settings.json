@@ -1,0 +1,11 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "launch": {
+
+
+        "configurations": [],
+        "compounds": []
+    },
+    "editor.formatOnSave": true,
+    
+}
