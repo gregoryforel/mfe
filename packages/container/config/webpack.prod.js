@@ -9,6 +9,9 @@ const prodConfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
+        // used any time some part of webpack tries to refer to a file built by
+        // webpack. It will prepend the files with below path.
+        publicPath: '/container/latest/'
     },
     plugins: [
         new ModuleFederationPlugin({
