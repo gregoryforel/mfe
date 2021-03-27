@@ -5,7 +5,10 @@ import { createMemoryHistory, createBrowserHistory } from 'history'
 import App from './App'
 
 // Mount function to start up the app
-const mount = (htmlElement, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (
+    htmlElement,
+    { onNavigate, defaultHistory, initialPath, onSignIn }
+) => {
     // memoryHistory is initially set as "/".
     // Hence we need to initialize the first path.
     // Lesson: Adding Initial State to Memory Hiustory.
@@ -19,7 +22,7 @@ const mount = (htmlElement, { onNavigate, defaultHistory, initialPath }) => {
         history.listen(onNavigate)
     }
 
-    ReactDOM.render(<App history={history} />, htmlElement)
+    ReactDOM.render(<App history={history} onSignIn={onSignIn} />, htmlElement)
 
     return {
         onParentNavigate({ pathname: nextPathname }) {
