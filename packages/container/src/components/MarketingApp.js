@@ -18,6 +18,7 @@ export default () => {
                     history.push(nextPathName)
                 }
             },
+            initialPath: history.location.pathname,
         })
 
         history.listen(onParentNavigate)

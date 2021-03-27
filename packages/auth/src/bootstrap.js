@@ -5,8 +5,15 @@ import { createMemoryHistory, createBrowserHistory } from 'history'
 import App from './App'
 
 // Mount function to start up the app
-const mount = (htmlElement, { onNavigate, defaultHistory }) => {
-    const history = defaultHistory || createMemoryHistory()
+const mount = (htmlElement, { onNavigate, defaultHistory, initialPath }) => {
+    // memoryHistory is initially set as "/".
+    // Hence we need to initialize the first path.
+    // Lesson: Adding Initial State to Memory Hiustory.
+    const history =
+        defaultHistory ||
+        createMemoryHistory({
+            initialEntries: [initialPath],
+        })
 
     if (onNavigate) {
         history.listen(onNavigate)
