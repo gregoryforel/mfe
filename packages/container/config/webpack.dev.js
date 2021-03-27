@@ -2,7 +2,6 @@ const { merge } = require('webpack-merge')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
 const packageJson = require('../package.json')
-
 const commonConfig = require('./webpack.common')
 
 const devConfig = {
@@ -22,6 +21,7 @@ const devConfig = {
             remotes: {
                 // the name "marketing" before @, matches up with the name inside
                 // ModuleFederationPlugin's config marketing/.../webpack.dev.js
+                auth: 'auth@http://localhost:8082/remoteEntry.js',
                 marketing: 'marketing@http://localhost:8081/remoteEntry.js',
             },
             shared: packageJson.dependencies,
